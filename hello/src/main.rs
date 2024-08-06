@@ -1,13 +1,16 @@
 fn main() {
-    let x:i32=10;
-    let y = 20;
-    let z = mul(x,y);
+    fn do_it(f: fn(u32, u32) -> u32, a: u32, b: u32) {
+        println!("{}", f(a,b));
+    }
     
-    println!("z = {z}");
-}
-
-fn mul(x: i32, y:i32) -> i32 {
-    // Rustでは、関数の最後の値が返り値となる
-    // ; は不要(;はその式の値を利用しないという意味)
-    x * y
+    fn add(a:u32, b: u32) -> u32 {
+      a + b
+    }
+    
+    fn mul(a:u32, b: u32) -> u32 {
+      a * b
+    }
+    
+    do_it(add, 10, 20);
+    do_it(mul, 10, 20);
 }
