@@ -1,13 +1,13 @@
 fn main() {
-    let x:i32=10;
-    let y = 20;
-    let z = mul(x,y);
-    
-    println!("z = {z}");
-}
+    let arr: [u32; 4] = [1, 2, 3, 4];
+    println!("{}, {}, {}, {}", arr[0], arr[1], arr[2], arr[3]);
 
-fn mul(x: i32, y:i32) -> i32 {
-    // Rustでは、関数の最後の値が返り値となる
-    // ; は不要(;はその式の値を利用しないという意味)
-    x * y
+    let s: &[u32] = &arr[1..3];
+    println!("{:?}", s);
+
+    // compile error
+    // arr[5];
+
+    // panicked
+    // s[5];
 }
